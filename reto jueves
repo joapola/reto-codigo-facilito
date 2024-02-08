@@ -1,0 +1,52 @@
+def validar_nombre(nombre):
+    return 5 <= len(nombre) <= 50
+
+def validar_telefono(telefono):
+    return len(telefono) == 10 and telefono.isdigit()
+
+def validar_correo(correo):
+    return 5 <= len(correo) <= 50 and "@" in correo and "." in correo
+
+def registrar_usuario():
+    cantidad_usuarios = int(input("Ingrese la cantidad de nuevos usuarios que desea registrar: "))
+
+    usuarios_registrados = []
+    ids_usuarios = []
+
+    for i in range(cantidad_usuarios):
+        print(f"Ingrese los datos del usuario {i+1}:")
+        usuario = {}
+        usuario_id = i + 1
+        
+        nombre = input("Ingrese su nombre(s): ")
+        while not validar_nombre(nombre):
+            print("El nombre debe tener una longitud mínima de 5 caracteres y una longitud máxima de 50.")
+            nombre = input("Ingrese su nombre(s): ")
+        usuario["nombre"] = nombre
+
+        apellidos = input("Ingrese su(s) apellido(s): ")
+        while not validar_nombre(apellidos):
+            print("Los apellidos deben tener una longitud mínima de 5 caracteres y una longitud máxima de 50.")
+            apellidos = input("Ingrese su(s) apellido(s): ")
+        usuario["apellidos"] = apellidos
+
+        telefono = input("Ingrese su número de teléfono: ")
+        while not validar_telefono(telefono):
+            print("El número de teléfono debe tener 10 dígitos.")
+            telefono = input("Ingrese su número de teléfono: ")
+        usuario["telefono"] = telefono
+
+        correo = input("Ingrese su correo electrónico: ")
+        while not validar_correo(correo):
+            print("El correo electrónico debe tener una longitud mínima de 5 caracteres, una longitud máxima de 50 caracteres y ser válido.")
+            correo = input("Ingrese su correo electrónico: ")
+        usuario["correo"] = correo
+
+        usuarios_registrados.append(usuario)
+        ids_usuarios.append(usuario_id)
+
+    print("Usuarios registrados:")
+    for i in range(len(usuarios_registrados)):
+        print(f"ID: {ids_usuarios[i]}, Usuario: {usuarios_registrados[i]}")
+
+registrar_usuario()
