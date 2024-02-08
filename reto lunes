@@ -1,0 +1,14 @@
+def registrar_usuario():
+    # Crea un diccionario para almacenar la información del usuario
+    usuario = {}
+
+    # Pide al usuario que ingrese su información
+    usuario["nombre"] = input("Ingrese su nombre(s): ")
+    usuario["apellidos"] = input("Ingrese su(s) apellido(s): ")
+    usuario["telefono"] = input("Ingrese su número de teléfono: ")
+    usuario["correo"] = input("Ingrese su correo electrónico: ")
+
+    # Mostrar un mensaje de bienvenida con la información ingresada
+    print("¡Hola " + usuario["nombre"] + " " + usuario["apellidos"] + "! En breve recibirás un correo a " + usuario["correo"] + ".")
+
+registrar_usuario()
