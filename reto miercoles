@@ -11,13 +11,10 @@ def registrar_usuario():
     cantidad_usuarios = int(input("Ingrese la cantidad de nuevos usuarios que desea registrar: "))
 
     usuarios_registrados = []
-    ids_usuarios = []
 
     for i in range(cantidad_usuarios):
         print(f"Ingrese los datos del usuario {i+1}:")
         usuario = {}
-        usuario_id = i + 1
-        
         nombre = input("Ingrese su nombre(s): ")
         while not validar_nombre(nombre):
             print("El nombre debe tener una longitud mínima de 5 caracteres y una longitud máxima de 50.")
@@ -43,10 +40,10 @@ def registrar_usuario():
         usuario["correo"] = correo
 
         usuarios_registrados.append(usuario)
-        ids_usuarios.append(usuario_id)
 
     print("Usuarios registrados:")
-    for i in range(len(usuarios_registrados)):
-        print(f"ID: {ids_usuarios[i]}, Usuario: {usuarios_registrados[i]}")
+    for usuario in usuarios_registrados:
+        print(usuario)
 
 registrar_usuario()
+
